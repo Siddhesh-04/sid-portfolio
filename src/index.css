@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS for robotics theme */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+/* Holographic grid background */
+.holographic-grid {
+  background-image: 
+    linear-gradient(rgba(20, 184, 166, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 184, 166, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-move 20s linear infinite;
+}
+
+@keyframes grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+
+/* Neon glow effects */
+.neon-glow {
+  box-shadow: 
+    0 0 5px rgba(20, 184, 166, 0.5),
+    0 0 10px rgba(20, 184, 166, 0.3),
+    0 0 15px rgba(20, 184, 166, 0.2);
+}
+
+.neon-glow-purple {
+  box-shadow: 
+    0 0 5px rgba(139, 92, 246, 0.5),
+    0 0 10px rgba(139, 92, 246, 0.3),
+    0 0 15px rgba(139, 92, 246, 0.2);
+}
+
+.neon-glow-coral {
+  box-shadow: 
+    0 0 5px rgba(255, 107, 107, 0.5),
+    0 0 10px rgba(255, 107, 107, 0.3),
+    0 0 15px rgba(255, 107, 107, 0.2);
+}
+
+/* Energy ripple effect */
+.energy-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.energy-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  pointer-events: none;
+}
+
+.energy-ripple:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes robot-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(20, 184, 166, 0.5),
+                0 0 10px rgba(20, 184, 166, 0.3),
+                0 0 15px rgba(20, 184, 166, 0.2);
+  }
+  50% { 
+    box-shadow: 0 0 10px rgba(20, 184, 166, 0.8),
+                0 0 20px rgba(20, 184, 166, 0.5),
+                0 0 30px rgba(20, 184, 166, 0.3);
+  }
+}
+
+@keyframes circuit-flow {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-robot-float {
+  animation: robot-float 3s ease-in-out infinite;
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+.animate-circuit-flow {
+  animation: circuit-flow 2s ease-in-out infinite;
+}
+
+/* Smooth hover transitions */
+button, a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom gradient colors */
+.text-gradient {
+  background: linear-gradient(135deg, #14b8a6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-coral {
+  background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #14b8a6, #8b5cf6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #0d9488, #7c3aed);
+}
+
+/* Selection color */
+::selection {
+  background-color: #14b8a6;
+  color: white;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #14b8a6;
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on interactive elements */
+button, .group {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Robotics-specific styles */
+.robot-card {
+  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.robot-card:hover {
+  border-color: rgba(20, 184, 166, 0.5);
+  transform: translateY(-5px);
+}
+
+.doodle-font {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+/* Cursor trail effect */
+.cursor-trail {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #14b8a6, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+
+/* Page transition effects */
+.page-transition {
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition.active {
+  transform: translateX(0);
+}
+
+/* Glitch effect for headings */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-1 0.5s infinite;
+  color: #ff6b6b;
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitch-2 0.5s infinite;
+  color: #14b8a6;
+  z-index: -2;
+}
+
+@keyframes glitch-1 {
+  0%, 14%, 15%, 49%, 50%, 99%, 100% {
+    transform: translate(0);
+  }
+  15%, 49% {
+    transform: translate(-2px, 0);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 20%, 21%, 62%, 63%, 99%, 100% {
+    transform: translate(0);
+  }
+  21%, 62% {
+    transform: translate(2px, 0);
+  }
+}
+
+/* Ensure proper text rendering */
+.text-rendering {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
