@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Code, Coffee, Bot, Zap, Cpu } from 'lucide-react';
+import { Heart, Code, Camera, Bot, Zap, Cpu } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -13,15 +13,15 @@ const Footer = () => {
                 <Cpu className="w-4 h-4 text-white" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent doodle-font">
-                Siddhesh.dev
+                Learn · Built · Automate
               </span>
             </div>
             <p className="text-gray-300 mb-4 text-sm sm:text-base">
-              Building intelligent systems with AI, robotics, and data analytics. From Gujarat to the world.
+              Learning & Experimenting with Robotics, Machine Vision & Artificial Intelligence
             </p>
             <div className="flex items-center space-x-2 text-gray-400">
               <span className="text-xs sm:text-sm">Currently working on:</span>
-              <span className="text-sm bg-dark-800 px-2 py-1 rounded-full border border-neon-teal/30">AI for Manufacturing 🏭</span>
+              <span className="text-sm bg-dark-800 px-2 py-1 rounded-full border border-neon-teal/30">Computer Vision in Robotics 🏭</span>
             </div>
           </div>
 
@@ -53,15 +53,15 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
                 <Cpu className="w-4 h-4 text-neon-purple" />
-                <span className="text-sm">Robotics & Embedded Systems</span>
+                <span className="text-sm">Robotics</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
-                <Code className="w-4 h-4 text-neon-coral" />
+                <Camera className="w-4 h-4 text-neon-coral" />
+                <span className="text-sm">Machine Vision</span>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300">
+                <Code className="w-4 h-4 text-neon-yellow" />
                 <span className="text-sm">Python Development</span>
-              </div>
-              <div className="flex items-center space-x-2 text-gray-300">
-                <Zap className="w-4 h-4 text-neon-yellow" />
-                <span className="text-sm">Data Analytics</span>
               </div>
             </div>
           </div>
@@ -70,16 +70,16 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-400 text-sm flex items-center">
-            © 2024 Siddhesh Suthar. Made with{' '}
+            © 2025 Siddhesh Suthar. Made with{' '}
             <Heart className="w-4 h-4 inline text-neon-coral mx-1" />{' '}
-            and lots of chai.
+            and lots of Tea.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <div className="flex items-center space-x-2 text-gray-400 text-sm">
               <span className="hidden sm:inline">Powered by:</span>
-              <span className="bg-dark-800 px-2 py-1 rounded text-xs border border-neon-teal/30">Python</span>
-              <span className="bg-dark-800 px-2 py-1 rounded text-xs border border-neon-purple/30">React</span>
-              <span className="bg-dark-800 px-2 py-1 rounded text-xs border border-neon-coral/30">AI</span>
+              <span className="bg-dark-800 px-2 py-1 rounded text-xs border border-neon-teal/30">React</span>
+              <span className="bg-dark-800 px-2 py-1 rounded text-xs border border-neon-purple/30">Bolt</span>
+              <span className="bg-dark-800 px-2 py-1 rounded text-xs border border-neon-coral/30">Netlify</span>
             </div>
           </div>
         </div>
@@ -87,11 +87,11 @@ const Footer = () => {
         {/* Robot Mascot Wave */}
         <div className="text-center mt-8">
           <div className="inline-block animate-robot-float">
-            <span className="text-3xl sm:text-4xl">🤖</span>
+            <Bot className="w-4 h-4 inline text-neon-teal animate-pulse" />
+            {/* <span className="text-3xl sm:text-4xl">🤖</span> */}
           </div>
           <p className="text-gray-400 text-sm mt-2">
-            Thanks for visiting! Let's build something amazing together{' '}
-            <Zap className="w-4 h-4 inline text-neon-teal animate-pulse" />
+            Thanks for visiting!
           </p>
         </div>
       </div>

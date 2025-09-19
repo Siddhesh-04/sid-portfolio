@@ -251,9 +251,9 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectClick }) => {
 
         {/* View More Button */}
         <div className="text-center mt-12">
-          <button className="bg-gradient-to-r from-neon-teal to-neon-purple text-white px-8 py-3 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-200 neon-glow energy-ripple">
+          <a href="#projects"><button className="bg-gradient-to-r from-neon-teal to-neon-purple text-white px-8 py-3 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-200 neon-glow energy-ripple">
             View All Projects
-          </button>
+          </button></a>
         </div>
       </div>
     </section>

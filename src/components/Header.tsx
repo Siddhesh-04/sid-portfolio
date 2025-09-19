@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
               <Cpu className="w-4 h-4 text-white" />
             </div>
             <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent doodle-font">
-              Siddhesh.dev
+              Learn · Built · Automate
             </span>
           </button>
 
@@ -86,10 +86,16 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
               </button>
             ))}
             
-            <button className="bg-gradient-to-r from-neon-teal to-neon-purple text-white px-3 lg:px-4 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center space-x-2 neon-glow energy-ripple text-sm">
+            <a
+              href="https://drive.google.com/uc?export=download&id=1ODuPBq0MfwIxYde5Gj_1XdKOaKke-iXj"
+              
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-neon-teal to-neon-purple text-white px-3 lg:px-4 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center space-x-2 neon-glow energy-ripple text-sm"
+              download
+            >
               <Download className="w-4 h-4" />
               <span>Resume</span>
-            </button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -118,10 +124,16 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
               </button>
             ))}
             <div className="px-4">
-              <button className="w-full bg-gradient-to-r from-neon-teal to-neon-purple text-white px-4 py-2 rounded-full hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2 neon-glow text-sm">
-              <Download className="w-4 h-4" />
-              <span>Resume</span>
-            </button>
+              <a
+                href="https://drive.google.com/uc?export=download&id=1ODuPBq0MfwIxYde5Gj_1XdKOaKke-iXj"
+                
+                rel="noopener noreferrer"
+                className="w-full bg-gradient-to-r from-neon-teal to-neon-purple text-white px-4 py-2 rounded-full hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2 neon-glow text-sm"
+                download
+              >
+                <Download className="w-4 h-4" />
+                <span>Resume</span>
+              </a>
             </div>
           </div>
         </div>

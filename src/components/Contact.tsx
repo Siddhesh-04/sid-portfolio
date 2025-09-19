@@ -7,8 +7,9 @@ const Contact = () => {
     email: '',
     message: ''
   });
-  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const validateForm = () => {
     const newErrors: {[key: string]: string} = {};
@@ -35,20 +36,34 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!validateForm()) return;
-
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+    setSuccess(false);
+    try {
+      // Replace 'yourFormIdHere' with your actual Formspree form ID
+      const formspreeUrl = 'https://formspree.io/f/mwpndnnw';
+      const response = await fetch(formspreeUrl, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+      if (response.ok) {
+        setFormData({ name: '', email: '', message: '' });
+        setSuccess(true);
+      } else {
+        setErrors({ form: 'Something went wrong. Please try again later.' });
+      }
+    } catch (error) {
+      setErrors({ form: 'Something went wrong. Please try again later.' });
+    }
     setIsSubmitting(false);
-    
-    // Show success message
-    alert('Message sent! I\'ll get back to you soon ✨');
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -91,14 +106,13 @@ const Contact = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 doodle-font">
-            Let's Build the{' '}
+            Let's{' '}
             <span className="bg-gradient-to-r from-neon-teal to-neon-purple bg-clip-text text-transparent">
-              Future Together
+              Connect
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
-            Have a robotics project in mind? Want to collaborate on AI research? Or just want to chat about anime and tech? 
-            I'd love to hear from you!
+            Have an idea or opportunity? Let’s build something intelligent together.
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-neon-teal to-neon-purple rounded-full mx-auto mt-6"></div>
         </div>
@@ -117,7 +131,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white text-sm sm:text-base">Email Me</h4>
-                    <p className="text-gray-300 text-sm sm:text-base break-all">siddhesh.suthar@example.com</p>
+                    <p className="text-gray-300 text-sm sm:text-base break-all">contact.siddhesh04@gmail.com</p>
                     <span className="text-xs text-gray-400">I usually reply within 24 hours ⚡</span>
                   </div>
                 </div>
@@ -130,19 +144,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-white text-sm sm:text-base">Location</h4>
                     <p className="text-gray-300 text-sm sm:text-base">Gandhinagar, Gujarat, India</p>
-                    <span className="text-xs text-gray-400">Open to remote opportunities 🇮🇳</span>
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div className="flex items-start space-x-4 group">
-                  <div className="w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-r from-neon-purple to-pink-500 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-200 neon-glow-purple flex-shrink-0">
-                    <MessageCircle className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white text-sm sm:text-base">Let's Chat</h4>
-                    <p className="text-gray-300 text-sm sm:text-base">Available for AI/Robotics projects & collaborations</p>
-                    <span className="text-xs text-gray-400">Coffee chat? Count me in! ☕</span>
+                    <span className="text-xs text-gray-400">Open to remote opportunities</span>
                   </div>
                 </div>
               </div>
@@ -185,14 +187,19 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-dark-700 rounded-2xl shadow-xl p-4 sm:p-8 border border-neon-teal/20 mt-8 lg:mt-0">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" autoComplete="off">
               <div>
                 <h3 className="text-lg sm:text-xl font-semibold text-white mb-6 flex items-center justify-center sm:justify-start doodle-font">
                   <span>Send me a message</span>
                   <Bot className="w-5 h-5 text-neon-teal ml-2 animate-robot-float" />
                 </h3>
               </div>
-
+              {errors.form && (
+                <p className="mb-2 text-sm text-red-400 text-center">{errors.form}</p>
+              )}
+              {success && (
+                <p className="mb-2 text-sm text-green-400 text-center">Message sent! I'll get back to you soon ✨</p>
+              )}
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -204,18 +211,18 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border-2 rounded-xl transition-colors duration-200 focus:outline-none bg-dark-800 text-white placeholder-gray-500 ${
+                  className={`w-full px-4 py-3 border-2 rounded-xl transition-colors duration-200 focus:outline-none bg-transparent text-white placeholder-gray-500 ${
                     errors.name
                       ? 'border-red-400 focus:border-red-500'
                       : 'border-gray-600 focus:border-neon-teal'
                   }`}
                   placeholder="John Doe"
+                  required
                 />
                 {errors.name && (
                   <p className="mt-1 text-sm text-red-400">{errors.name}</p>
                 )}
               </div>
-
               {/* Email Field */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
@@ -227,18 +234,18 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border-2 rounded-xl transition-colors duration-200 focus:outline-none bg-dark-800 text-white placeholder-gray-500 ${
+                  className={`w-full px-4 py-3 border-2 rounded-xl transition-colors duration-200 focus:outline-none bg-transparent text-white placeholder-gray-500 ${
                     errors.email
                       ? 'border-red-400 focus:border-red-500'
                       : 'border-gray-600 focus:border-neon-teal'
                   }`}
                   placeholder="john@example.com"
+                  required
                 />
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-400">{errors.email}</p>
                 )}
               </div>
-
               {/* Message Field */}
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
@@ -250,18 +257,18 @@ const Contact = () => {
                   rows={5}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 border-2 rounded-xl transition-colors duration-200 focus:outline-none resize-none bg-dark-800 text-white placeholder-gray-500 ${
+                  className={`w-full px-4 py-3 border-2 rounded-xl transition-colors duration-200 focus:outline-none resize-none bg-transparent text-white placeholder-gray-500 ${
                     errors.message
                       ? 'border-red-400 focus:border-red-500'
                       : 'border-gray-600 focus:border-neon-teal'
                   }`}
                   placeholder="Tell me about your robotics project or just say hi! 👋"
+                  required
                 ></textarea>
                 {errors.message && (
                   <p className="mt-1 text-sm text-red-400">{errors.message}</p>
                 )}
               </div>
-
               {/* Submit Button */}
               <button
                 type="submit"
@@ -277,17 +284,11 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Fun Ending */}
-        <div className="text-center mt-16">
-          <div className="flex items-center justify-center space-x-2 text-base sm:text-lg text-gray-300">
-            <span>Let's build the future together</span>
-            <Zap className="w-5 h-5 text-neon-teal animate-pulse" />
-            <span className="animate-robot-float">🤖</span>
-          </div>
-        </div>
+        
       </div>
     </section>
   );
+  
 };
 
 export default Contact;

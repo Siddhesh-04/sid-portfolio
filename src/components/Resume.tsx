@@ -85,11 +85,10 @@ const Resume = () => {
                   <Eye className="w-5 h-5" />
                   <span>{showPreview ? 'Hide Preview' : 'Preview Resume'}</span>
                 </button>
-                
-                <button className="bg-dark-700 hover:bg-dark-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-200 flex items-center justify-center space-x-2 border border-neon-purple/30 energy-ripple text-sm sm:text-base">
+                <a href="https://drive.google.com/uc?export=download&id=1ODuPBq0MfwIxYde5Gj_1XdKOaKke-iXj" rel="noopener noreferrer" className="bg-dark-700 hover:bg-dark-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-200 flex items-center justify-center space-x-2 border border-neon-purple/30 energy-ripple text-sm sm:text-base">
                   <Download className="w-5 h-5" />
                   <span>Download PDF</span>
-                </button>
+                </a>
               </div>
             </div>
 
