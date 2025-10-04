@@ -97,7 +97,7 @@ github: 'https://github.com/Siddhesh-04/visual-inspection-qc',
     featured: true,
     details: {
       role: 'AI Intern',
-      contributors: ["Shubham Rakholiya", "Harsh Pandya"],
+      contributors: ["Shubham Rakholiya", "Harsh Pandya", "Brijesh Patel", "Smith Patel"],
       timeline: '1-2 weeks',
       challenges: ['Model optimization for edge deployment', 'User-friendly interface design'],
       gallery: [
