@@ -86,8 +86,7 @@ const Footer: React.FC<FooterProps> = ({ minimal }) => {
         {/* Bottom Bar (Always Show) */}
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-400 text-sm flex items-center">
-            © 2025 Siddhesh Suthar. Made with{' '}
-            <Heart className="w-4 h-4 inline text-neon-coral mx-1" /> and lots of Tea.
+            © 2025 Siddhesh Suthar. Made with 🤍 and lots of Tea.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <div className="flex items-center space-x-2 text-gray-400 text-sm">
