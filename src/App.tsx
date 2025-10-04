@@ -58,7 +58,7 @@ function App() {
     <div className="min-h-screen bg-dark-900 holographic-grid">
       <Seo
         title="Portfolio | Siddhesh Suthar"
-        description="Portfolio of Siddhesh Suthar – A final-year Robotics & Automation Engineering Student, Gujarat, India"
+        description="Final-year Robotics & Automation Engineering Student, Gujarat, India"
         keywords="Siddhesh Suthar,Siddhesh Portfolio,,Siddhesh-04, siddhesh-suthar, Robotics Portfolio, AI Portfolio, Automation, Machine Vision, Embedded Systems, Gujarat, India, Student, Engineer, Projects, Resume, Portfolio, SiddheshResume, Government Engineering College Gandhinagar, GEC Gandhinagar, Siddhesh Gec"
         image="/assets/og-image.png"
         twitterImage="/assets/twitter-card.png"
