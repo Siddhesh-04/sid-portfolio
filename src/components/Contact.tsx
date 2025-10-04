@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MessageCircle, Send, Github, Linkedin, Twitter, MapPin, Bot, Zap } from 'lucide-react';
+import { Mail, Send, Github, Linkedin, MapPin, Bot } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -78,26 +78,26 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      name: 'GitHub',
-      icon: <Github className="w-5 h-5" />,
-      url: '#',
-      color: 'hover:text-gray-300',
-      doodle: '🐱'
-    },
-    {
       name: 'LinkedIn',
       icon: <Linkedin className="w-5 h-5" />,
-      url: '#',
+      url: 'https://linkedin.com/in/siddheshsuthar',
       color: 'hover:text-blue-400',
       doodle: '💼'
     },
     {
-      name: 'Twitter',
-      icon: <Twitter className="w-5 h-5" />,
-      url: '#',
-      color: 'hover:text-blue-300',
-      doodle: '🐦'
-    }
+      name: 'GitHub',
+      icon: <Github className="w-5 h-5" />,
+      url: 'https://github.com/Siddhesh-04?tab=repositories',
+      color: 'hover:text-gray-300',
+      doodle: '🐱'
+    },
+    // {
+    //   name: 'Twitter',
+    //   icon: <Twitter className="w-5 h-5" />,
+    //   url: '',
+    //   color: 'hover:text-blue-300',
+    //   doodle: '🐦'
+    // }
   ];
 
   return (
@@ -112,7 +112,7 @@ const Contact = () => {
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
-            Have an idea or opportunity? Let’s build something intelligent together.
+            Have an idea or opportunity? Let's build something intelligent together.
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-neon-teal to-neon-purple rounded-full mx-auto mt-6"></div>
         </div>
@@ -131,7 +131,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white text-sm sm:text-base">Email Me</h4>
-                    <p className="text-gray-300 text-sm sm:text-base break-all">contact.siddhesh04@gmail.com</p>
+                    <a href="mailto:contact.siddhesh04@gmail.com">
+                      <p className="text-gray-300 text-sm sm:text-base break-all hover:text-blue-400">contact.siddhesh04@gmail.com</p>
+                    </a>
                     <span className="text-xs text-gray-400">I usually reply within 24 hours ⚡</span>
                   </div>
                 </div>
@@ -149,7 +151,6 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-
             {/* Social Links */}
             <div>
               <h4 className="text-base sm:text-lg font-semibold text-white mb-4 doodle-font">Connect With Me</h4>
@@ -172,17 +173,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Fun CTA */}
-            {/* <div className="bg-dark-700 rounded-2xl p-6 shadow-lg border-2 border-dashed border-neon-coral/30">
-              <div className="text-center">
-                <div className="text-4xl mb-3 animate-robot-float">🚀</div>
-                <h4 className="font-semibold text-white mb-2 doodle-font">Ready to Launch Something Great?</h4>
-                <p className="text-gray-300 text-sm">
-                  Whether it's a robotics startup, an AI research project, or just a cool collaboration - 
-                  I'm always excited to work on something that pushes the boundaries of technology!
-                </p>
-              </div>
-            </div> */}
           </div>
 
           {/* Contact Form */}
@@ -216,7 +206,7 @@ const Contact = () => {
                       ? 'border-red-400 focus:border-red-500'
                       : 'border-gray-600 focus:border-neon-teal'
                   }`}
-                  placeholder="John Doe"
+                  placeholder="Name"
                   required
                 />
                 {errors.name && (
@@ -239,7 +229,7 @@ const Contact = () => {
                       ? 'border-red-400 focus:border-red-500'
                       : 'border-gray-600 focus:border-neon-teal'
                   }`}
-                  placeholder="john@example.com"
+                  placeholder="name@example.com"
                   required
                 />
                 {errors.email && (
@@ -262,7 +252,7 @@ const Contact = () => {
                       ? 'border-red-400 focus:border-red-500'
                       : 'border-gray-600 focus:border-neon-teal'
                   }`}
-                  placeholder="Tell me about your robotics project or just say hi! 👋"
+                  placeholder="Tell me about your project or just say hi! 👋"
                   required
                 ></textarea>
                 {errors.message && (

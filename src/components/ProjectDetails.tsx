@@ -1,17 +1,25 @@
-import React from 'react';
-import { ArrowLeft, ExternalLink, Github, Calendar, User, Zap, Target } from 'lucide-react';
+
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { ExternalLink, Github, User, Users, Zap, Target, Calendar } from 'lucide-react';
 
 interface ProjectDetailsProps {
   project: any;
   onBack: () => void;
 }
 
-const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onBack }) => {
+const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project}) => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  useEffect(() => {
+    // Scroll to top when ProjectDetails mounts
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [project]);
   return (
     <div className="min-h-screen pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
         {/* Back Button */}
-        <button
+        {/* <button
           onClick={onBack}
           className="flex items-center space-x-2 text-neon-teal hover:text-white transition-colors duration-200 mb-8 group"
         >
@@ -19,38 +27,28 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onBack }) => {
             <ArrowLeft className="w-4 h-4" />
           </div>
           <span className="font-medium">Back to Projects</span>
-        </button>
+        </button> */}
 
         {/* Project Hero */}
-        <div className="bg-dark-800 rounded-3xl overflow-hidden border border-neon-teal/20 mb-12">
-          <div className="relative h-96">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 to-transparent"></div>
-            
-            {/* Project Title Overlay */}
-            <div className="absolute bottom-8 left-8 right-8">
-              <div className="flex items-center space-x-2 mb-4">
-                <span className="bg-gradient-to-r from-neon-teal to-neon-purple text-white px-3 py-1 rounded-full text-sm font-semibold neon-glow">
-                  {project.category}
-                </span>
-                {project.featured && (
-                  <span className="bg-neon-yellow text-dark-900 px-3 py-1 rounded-full text-sm font-semibold">
-                    Featured ⭐
-                  </span>
-                )}
-              </div>
-              <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 doodle-font">
-                {project.title}
-              </h1>
-              <p className="text-xl text-gray-300 max-w-3xl">
-                {project.description}
-              </p>
-            </div>
+        <div className="bg-dark-800 rounded-3xl overflow-hidden border border-neon-teal/20 mb-8 sm:mb-12 p-4 sm:p-6 lg:p-8">
+          <div className="flex items-center flex-wrap gap-2 mb-3 sm:mb-4">
+            <span className="bg-gradient-to-r from-neon-teal to-neon-purple text-white px-2 py-1 sm:px-3 rounded-full text-xs sm:text-sm font-semibold neon-glow">
+              {project.category}
+            </span>
+            {project.featured && (
+              <span className="bg-gradient-to-r from-neon-purple to-neon-teal text-dark-900 px-2 py-1 sm:px-3 rounded-full text-xs sm:text-sm font-semibold">
+                Featured ⭐
+              </span>
+            )}
           </div>
+
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 doodle-font leading-tight">
+            {project.title}
+          </h1>
+
+          <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">
+            {project.description}
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
@@ -62,16 +60,9 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onBack }) => {
                 <Target className="w-6 h-6 mr-3 text-neon-teal" />
                 Project Overview
               </h2>
-              <div className="prose prose-invert max-w-none">
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                  This project represents a significant milestone in my journey as a robotics enthusiast and creative developer. 
-                  It showcases the intersection of cutting-edge technology, innovative algorithms, and user-centered design.
-                </p>
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  Through this work, I explored advanced concepts in artificial intelligence, real-time simulation, 
-                  and interactive visualization, pushing the boundaries of what's possible in web-based robotics applications.
-                </p>
-              </div>
+              <p className="text-gray-300 text-lg leading-relaxed whitespace-pre-line">
+                {project.overview}
+              </p>
             </div>
 
             {/* Challenges & Solutions */}
@@ -97,12 +88,14 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onBack }) => {
             {/* Gallery */}
             {project.details?.gallery && (
               <div className="bg-dark-800 rounded-2xl p-8 border border-neon-coral/20">
-                <h2 className="text-2xl font-bold text-white mb-6 doodle-font">
-                  Project Gallery
-                </h2>
+                <h2 className="text-2xl font-bold text-white mb-6 doodle-font">Project Gallery</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {project.details.gallery.map((image: string, index: number) => (
-                    <div key={index} className="relative group">
+                    <div
+                      key={index}
+                      className="relative group cursor-pointer"
+                      onClick={() => setSelectedImage(image)}
+                    >
                       <img
                         src={image}
                         alt={`${project.title} screenshot ${index + 1}`}
@@ -112,6 +105,26 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onBack }) => {
                     </div>
                   ))}
                 </div>
+              </div>
+            )}
+
+            {/* Image Popup */}
+            {selectedImage && (
+              <div
+                className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+                onClick={() => setSelectedImage(null)}
+              >
+                <img
+                  src={selectedImage}
+                  alt="Enlarged view"
+                  className="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
+                />
+                <button
+                  onClick={() => setSelectedImage(null)}
+                  className="absolute top-5 right-5 text-white text-3xl font-bold"
+                >
+                  &times;
+                </button>
               </div>
             )}
           </div>
@@ -131,14 +144,28 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onBack }) => {
                     </div>
                   </div>
                 )}
-                
+                {project.details?.contributors?.length > 0 && (
+                  <div className="flex items-start space-x-3">
+                    <Users className="w-5 h-5 text-neon-teal mt-1" />
+                    <div>
+                      <p className="text-sm text-gray-400">Contributors</p>
+                      <ul className="text-white font-medium space-y-1">
+                        {project.details.contributors.map((name: string, idx: number) => (
+                          <li key={idx}>{name}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+                {project.details?.timeline && project.details.timeline.trim() !== '' && (
                 <div className="flex items-start space-x-3">
                   <Calendar className="w-5 h-5 text-neon-purple mt-1" />
                   <div>
                     <p className="text-sm text-gray-400">Timeline</p>
-                    <p className="text-white font-medium">3-4 weeks</p>
+                    <p className="text-white font-medium">{project.details.timeline}</p>
                   </div>
                 </div>
+              )}
               </div>
             </div>
 
@@ -163,29 +190,24 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project, onBack }) => {
                 <a
                   href={project.demo}
                   className="w-full bg-gradient-to-r from-neon-teal to-neon-purple text-white px-6 py-3 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-200 neon-glow energy-ripple flex items-center justify-center space-x-2"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <ExternalLink className="w-5 h-5" />
                   <span>View Live Demo</span>
                 </a>
               )}
-              
               {project.github && (
                 <a
                   href={project.github}
                   className="w-full bg-dark-700 hover:bg-dark-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-200 flex items-center justify-center space-x-2 border border-neon-purple/30 energy-ripple"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Github className="w-5 h-5" />
                   <span>View Source Code</span>
                 </a>
               )}
-            </div>
-
-            {/* Robot Mascot */}
-            <div className="bg-dark-800 rounded-2xl p-6 border border-neon-coral/20 text-center">
-              <div className="text-4xl mb-3 animate-robot-float">🤖</div>
-              <p className="text-gray-300 text-sm">
-                "This project showcases the perfect blend of creativity and technical expertise!"
-              </p>
             </div>
           </div>
         </div>

@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-import { Heart, Coffee, Gamepad2, Music, Book, Star, Cpu, Zap } from 'lucide-react';
 
 const About = () => {
 
@@ -21,31 +19,51 @@ const About = () => {
             
             <div className="space-y-4 text-gray-300 text-base sm:text-lg leading-relaxed">
               <p>
-                I am a final-year Robotics and Automation Engineering student, passionate about exploring the crossroads of Robotics, AI, and real-world automation. My journey began with a Diploma in Computer Engineering, which built my technical foundation and inspired me to pursue projects in robotics and Intelligent Systems.
-              </p>
-              <p>
-                I enjoy designing and optimizing intelligent systems that bridge the digital and physical worlds. Beyond academics, I believe in constant learning — not only from books but also through hands-on projects, meaningful conversations, and travel that broadens my perspective.
-              </p>
+  I am a final-year Robotics and Automation Engineering student with a strong interest in applying AI, and automation to real-world problems. My journey began with a Diploma in Computer Engineering, which gave me a solid technical foundation and sparked my curiosity for building intelligent systems.
+</p>
+<p>
+  Through academic work and personal projects, I have developed skills in Python, machine learning, and computer vision. As I start my professional journey, I am eager to apply this knowledge, take on real-world challenges, and continue growing through collaboration and learning.
+
+</p>
+
             </div>
 
         
           </div>
 
           {/* Right: Doodle Artwork */}
-          <div className="relative mt-8 lg:mt-0">
+          <div className="relative mt-50 lg:mt-0">
             <div className="relative bg-gradient-to-br from-dark-800 to-dark-700 rounded-3xl p-8 shadow-lg ">
               {/* Person image with static and animated circuit border, plus floating neon elements */}
-              <div className="relative z-10 flex items-center justify-center min-h-[220px] sm:min-h-[260px]">
-                <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-dark-800 to-dark-700 flex items-center justify-center">
+              <div
+                className="relative z-10 flex items-center justify-center min-h-[220px] sm:min-h-[260px]"
+                style={{ marginTop: 'var(--img-container-mt, 28px)' }}
+              >
+                <div
+                  className="relative rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-dark-800 to-dark-700 flex items-center justify-center"
+                  style={{
+                    width: 'var(--img-container-size, 14rem)',
+                    height: 'var(--img-container-size, 16rem)'
+                  }}
+                >
                   
-                  <img
-                    src="./src/assets/sid-img1.png"
-                    alt="Sid"
-                    className="relative z-20 h-full max-h-full w-auto drop-shadow-lg ml-0 "
-                    style={{ background: 'linear-gradient(100deg, #18181b 80%, #8b5cf6 100%)', display: 'block', marginTop: '42px' ,borderRadius: '12px'}}
-                    // style={{ background: 'linear-gradient(135deg, #18181b 80%, #8b5cf6 100%)', display: 'block', marginTop: '32px' }}
-                  />
-                  
+                
+                  <div
+                    style={{
+                      background: 'linear-gradient(35deg, #18181b 40%, #8a5cf6ac 100%)',
+                      display: 'block',
+                      borderRadius: '12px',
+                      overflow: 'hidden',
+                    }}
+                    className="relative z-20 drop-shadow-lg ml-0 "
+                  >
+                    <img
+                      src="/assets/about/sid-img1.png"
+                      alt="Sid"
+                      className="w-auto"
+                      style={{ height: 'var(--img-h, 100%)', maxHeight: '100%' }}
+                    />
+                  </div>
                 </div>
               </div>
               

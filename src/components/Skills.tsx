@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Code, Palette, Smartphone, Database, Cpu, Zap, Bot, Braces } from 'lucide-react';
+import { BrainCircuit , Code ,Rocket, Cpu, Globe, Zap} from 'lucide-react';
 
 interface Skill {
   id: number;
@@ -16,67 +16,65 @@ const Skills = () => {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
 
   const skills: Skill[] = [
-    {
-      id: 1,
-      name: 'Python Development',
-      icon: <Code className="w-6 h-6" />,
-      category: 'Development',
-      level: 90,
-      color: 'from-blue-400 to-neon-teal',
-      description: 'Core programming with Python for AI/ML, data analytics, web development using Flask, and automation.',
-      projects: ['Transistor Defect Inspector', 'Gesture-Controlled Robot', 'Data Analytics Projects']
-    },
-    {
-      id: 2,
-      name: 'AI & Machine Learning',
-      icon: <Bot className="w-6 h-6" />,
-      category: 'AI/ML',
-      level: 85,
-      color: 'from-neon-teal to-green-400',
-      description: 'Machine learning, computer vision with OpenCV, Mediapipe for gesture recognition, and TensorFlow for AI models.',
-      projects: ['Transistor Defect Inspector', 'Gesture-Controlled Robot', 'ML-based Robotic Arm']
-    },
-    {
-      id: 3,
-      name: 'Data Analytics',
-      icon: <Braces className="w-6 h-6" />,
-      category: 'Analytics',
-      level: 80,
-      color: 'from-neon-purple to-pink-500',
-      description: 'Data preprocessing, visualization, dashboard building with Tableau, Pandas, NumPy, and Matplotlib.',
-      projects: ['Healthcare Analytics Dashboard', 'GTU Data Analytics Program', 'Business Intelligence Reports']
-    },
-    {
-      id: 4,
-      name: 'Robotics & Embedded',
-      icon: <Cpu className="w-6 h-6" />,
-      category: 'Robotics',
-      level: 75,
-      color: 'from-neon-coral to-red-400',
-      description: 'Arduino, Raspberry Pi, microcontrollers, motor control, sensor integration, and embedded systems programming.',
-      projects: ['Mini Robotic Arm', 'Gesture-Controlled Robot', 'Sensor Integration Projects']
-    },
-    {
-      id: 5,
-      name: 'Web Development',
-      icon: <Palette className="w-6 h-6" />,
-      category: 'Web',
-      level: 70,
-      color: 'from-neon-yellow to-orange-400',
-      description: 'Full-stack development with HTML, CSS, JavaScript, PHP, Flask, and interactive web applications.',
-      projects: ['Transistor Defect Inspector UI', 'Personal Portfolio', 'Full Stack Development Projects']
-    },
-    {
-      id: 6,
-      name: 'Database & Tools',
-      icon: <Zap className="w-6 h-6" />,
-      category: 'Database',
-      level: 75,
-      color: 'from-purple-400 to-neon-purple',
-      description: 'SQL, MongoDB, Git/GitHub, Microsoft Excel for business applications, and data management systems.',
-      projects: ['Healthcare Data Management', 'Business Billing Systems', 'Version Control Projects']
-    }
-  ];
+  
+  {
+    id: 1,
+    name: 'Python Programming',
+    icon: < Code className="w-6 h-6" />,
+    category: 'Development',
+    level: 85,
+    color: 'from-blue-400 to-neon-teal',
+    description: 'Proficient in Python for prototyping, automation, and data handling. Experienced with libraries like OpenCV, Pandas, NumPy, Streamlit, Matplotlib, and related frameworks for real-world projects.',
+    projects: ['Transistor Defect Inspector', 'Image Processing with OpenCV', 'Python Voice Assistant']
+  },
+  {
+    id: 2,
+    name: 'AI & Computer Vision',
+    icon: <BrainCircuit className="w-6 h-6" />,
+    category: 'AI/ML',
+    level: 80,
+    color: 'from-neon-teal to-green-400',
+    description: 'Hands-on experience in the end-to-end workflow of AI models, including data preparation, training, evaluation, and basic deployment. Familiar with tools like Google Teachable Machine, TensorFlow lite, OpenCV, and MediaPipe to experiment with image classification, gesture detection, and anomaly detection projects.',
+    projects: ['Timelytics: Order-to-Delivery Time Prediction', 'Impeller Casting Defect Detection', 'Transistor Defect Classification', 'Facial Recognition System', 'Personality Prediction using CV']
+  },
+  {
+    id: 3,
+    name: 'Robotics & Embedded Systems',
+    icon: <Cpu className="w-6 h-6" />,
+    category: 'Robotics',
+    level: 70,
+    color: 'from-neon-coral to-red-400',
+    description: 'Experienced with Arduino, Raspberry Pi, and embedded platforms for robotics. Skilled in integrating motors and sensors to design and implement functional robotic systems.',
+    projects: ['CNC Plotter Machine', 'Gesture-Controlled UR5e Robot']
+  },
+  {
+    id: 4,
+    name: 'Web Development',
+    icon: <Globe className="w-6 h-6" />,
+    category: 'Web',
+    level: 70,
+    color: 'from-neon-yellow to-orange-400',
+    description: 'Developed responsive web applications using HTML, CSS, JavaScript, React, and Streamlit. Built databases and dynamic features with PHP, SQL, and MongoDB, while integrating web-based UI components into various projects.',
+    projects: ['Property Management System', 'AI-Enhanced Portfolio Website']
+  },
+  {
+    id: 5,
+    name: 'Version Control & Productivity Tools',
+    icon: <Rocket className="w-6 h-6" />,
+    category: 'Tools',
+    level: 75,
+    color: 'from-purple-400 to-neon-purple',
+    description: 'Skilled in version control and collaboration using Git/GitHub, VS Code, and Jupyter Notebook. Experienced in leveraging productivity platforms such as Google Workspace, MS Office, and GenAI tools to streamline workflows for both individual and team projects.',
+    projects: [
+    'Team Collaboration using GitHub',
+    'Construction Billing Support',
+    'Project Documentation and Reports',
+    'Code Prototyping & Experiments'
+  ]
+  }
+];
+
+
 
   return (
     <section id="skills" className="py-20 bg-dark-800">
@@ -106,11 +104,15 @@ const Skills = () => {
 
               {/* Skills orbiting around center */}
               {skills.map((skill, index) => {
-                const angle = (index * 360) / skills.length;
+                const totalSkills = skills.length;
+                const isOdd = totalSkills % 2 === 1;
+                const offsetAngle = isOdd ? -90 : -90 + (180 / totalSkills);
+                
+                const angle = (index * 360) / totalSkills + offsetAngle;
                 const radius = window.innerWidth < 640 ? 120 : 200;
                 const x = Math.cos((angle * Math.PI) / 180) * radius;
                 const y = Math.sin((angle * Math.PI) / 180) * radius;
-
+  
                 return (
                   <div
                     key={skill.id}
@@ -122,17 +124,17 @@ const Skills = () => {
                     }}
                     onClick={() => setSelectedSkill(skill)}
                   >
-                    {/* Connection line */}
+                    {/* {/* Connection line */}
                     <div
                       className="absolute w-px bg-gradient-to-r from-neon-teal/30 to-neon-purple/30 group-hover:from-neon-teal/60 group-hover:to-neon-purple/60 transition-all duration-300"
                       style={{
                         height: `${radius}px`,
                         left: '50%',
                         top: '50%',
-                        transformOrigin: 'top',
+                        transformOrigin: 'bottom',
                         transform: `translate(-50%, -100%) rotate(${angle + 180}deg)`,
                       }}
-                    ></div>
+                    ></div> 
 
                     {/* Skill node */}
                     <div className={`w-14 sm:w-20 h-14 sm:h-20 bg-gradient-to-r ${skill.color} rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 relative border-2 border-white/20 energy-ripple`}>
@@ -182,21 +184,7 @@ const Skills = () => {
 
                 <p className="text-sm sm:text-base text-gray-300 mb-6">{selectedSkill.description}</p>
 
-                {/* Skill Level */}
-                <div className="mb-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium text-gray-300">Proficiency Level</span>
-                    <span className="text-sm font-bold text-white">{selectedSkill.level}%</span>
-                  </div>
-                  <div className="w-full bg-dark-800 rounded-full h-3 border border-gray-600">
-                    <div
-                      className={`bg-gradient-to-r ${selectedSkill.color} h-3 rounded-full transition-all duration-500 relative overflow-hidden`}
-                      style={{ width: `${selectedSkill.level}%` }}
-                    >
-                      <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
-                    </div>
-                  </div>
-                </div>
+                {/* Skill Level removed for fresher presentation */}
 
                 {/* Related Projects */}
                 <div>
@@ -228,17 +216,18 @@ const Skills = () => {
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-2 sm:gap-4">
               <div className="bg-gradient-to-r from-neon-teal/10 to-neon-teal/20 rounded-xl p-4 text-center border border-neon-teal/30">
-                <div className="text-xl sm:text-2xl font-bold text-neon-teal">6+</div>
+                <div className="text-xl sm:text-2xl font-bold text-neon-teal">5+</div>
                 <div className="text-xs sm:text-sm text-neon-teal">Core Skills</div>
               </div>
               <div className="bg-gradient-to-r from-neon-purple/10 to-neon-purple/20 rounded-xl p-4 text-center border border-neon-purple/30">
-                <div className="text-xl sm:text-2xl font-bold text-neon-purple">12+</div>
+                <div className="text-xl sm:text-2xl font-bold text-neon-purple">8+</div>
                 <div className="text-xs sm:text-sm text-neon-purple">Projects</div>
               </div>
               <div className="bg-gradient-to-r from-neon-coral/10 to-neon-coral/20 rounded-xl p-4 text-center border border-neon-coral/30">
-                <div className="text-xl sm:text-2xl font-bold text-neon-coral">3+</div>
+                <div className="text-xl sm:text-2xl font-bold text-neon-coral" >2+</div>
                 <div className="text-xs sm:text-sm text-neon-coral">Years Learning</div>
               </div>
+              
             </div>
           </div>
         </div>
