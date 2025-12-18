@@ -24,7 +24,7 @@ const Skills = () => {
     category: 'Development',
     level: 85,
     color: 'from-blue-400 to-neon-teal',
-    description: 'Proficient in Python for prototyping, automation, and data handling. Experienced with libraries like OpenCV, Pandas, NumPy, Streamlit, Matplotlib, and related frameworks for real-world projects.',
+    description: 'Project-based experience in applying Python for prototyping, automation, and data handling within AI and automation projects. Familiar with libraries such as OpenCV, Pandas, NumPy, Streamlit, and Matplotlib for building and demonstrating proof-of-concept solutions.',
     projects: ['Transistor Defect Inspector', 'Image Processing with OpenCV', 'Python Voice Assistant']
   },
   {
@@ -44,7 +44,7 @@ const Skills = () => {
     category: 'Robotics',
     level: 70,
     color: 'from-neon-coral to-red-400',
-    description: 'Experienced with Arduino, Raspberry Pi, and embedded platforms for robotics. Skilled in integrating motors and sensors to design and implement functional robotic systems.',
+    description: 'Experienced in applying Arduino, Raspberry Pi, and embedded platforms in robotics projects. Worked on integrating motors and sensors to build and demonstrate functional robotic systems.',
     projects: ['CNC Plotter Machine', 'Gesture-Controlled UR5e Robot']
   },
   {
@@ -64,7 +64,7 @@ const Skills = () => {
     category: 'Tools',
     level: 75,
     color: 'from-purple-400 to-neon-purple',
-    description: 'Skilled in version control and collaboration using Git/GitHub, VS Code, and Jupyter Notebook. Experienced in leveraging productivity platforms such as Google Workspace, MS Office, and GenAI tools to streamline workflows for both individual and team projects.',
+    description: 'Experience using Git/GitHub for version control and collaboration, with VS Code and Jupyter Notebook, and leveraging Google Workspace, MS Office, and GenAI tools to support efficient project workflows.',
     projects: [
     'Team Collaboration using GitHub',
     'Construction Billing Support',
@@ -176,9 +176,9 @@ const Skills = () => {
                   </div>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-white doodle-font">{selectedSkill.name}</h3>
-                    <span className="text-sm text-gray-400 bg-dark-800 px-2 py-1 rounded-full border border-neon-teal/30">
+                    {/* <span className="text-sm text-gray-400 bg-dark-800 px-2 py-1 rounded-full border border-neon-teal/30">
                       {selectedSkill.category}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
 
