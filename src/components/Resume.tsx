@@ -21,6 +21,17 @@ const Resume = () => {
     ],
     experience: [
       {
+  title: 'Automation Intern',
+  link: '',
+  company: 'Indo Germen Tool Room, Ahmedabad',
+  period: 'Jan 2026 – Present',
+  achievements: [ 
+    "Learning industrial automation fundamentals with basic PLC concepts.",
+    "Gaining exposure to industrial robotics, simulation, and work-cell understanding.",
+    "Developing foundational CAD/CAM skills for industrial part design and manufacturing workflows."
+                 ]
+      },
+      {
   title: 'Robotics & Controls Job Simulation',
   link: 'https://www.theforage.com/completion-certificates/3w79S9RRBtn9noDWZ/q8m3gpN4ETXnjapPq_3w79S9RRBtn9noDWZ_GD3ebotvHcZongCWt_1755622658435_completion_certificate.pdf',
   company: 'Johnson & Johnson (Forage)',
