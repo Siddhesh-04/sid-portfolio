@@ -279,7 +279,7 @@ const Resume = () => {
                   </div>
                   <div className="bg-dark-700 rounded-lg p-4 border border-neon-purple/20">
                     <div className="text-neon-purple font-semibold mb-1">Experience</div>
-                    <div className="text-gray-400 text-xs sm:text-sm">Virtual Programs + Projects</div>
+                    <div className="text-gray-400 text-xs sm:text-sm">Industrial Trainning + Virtual Programs</div>
                   </div>
                   <div className="bg-dark-700 rounded-lg p-4 border border-neon-coral/20">
                     <div className="text-neon-coral font-semibold mb-1">Skills</div>
