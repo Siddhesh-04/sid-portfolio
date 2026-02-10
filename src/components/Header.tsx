@@ -98,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({
             {/* Resume button */}
             {!selectedProject && (
               <a
-                href="https://drive.google.com/uc?export=download&id=1G3zdadzH-W5QHgzXGUuBOR-ho8mKWgBz"
+                href="https://drive.google.com/file/d/1Bc34_qBq_gVKwmieWz-Fmwh0WxlFwZrI/view?usp=sharing"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-neon-teal to-neon-purple text-white px-3 lg:px-4 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center space-x-2 neon-glow energy-ripple text-sm"
                 download
