@@ -24,7 +24,7 @@ const Resume = () => {
   title: 'Automation Intern',
   link: '',
   company: 'Indo Germen Tool Room, Ahmedabad',
-  period: 'Jan 2026 – Present',
+  period: 'Jan 2026 – March 2026',
   achievements: [ 
     "Learning industrial automation fundamentals with basic PLC concepts.",
     "Gaining exposure to industrial robotics, simulation, and work-cell understanding.",
