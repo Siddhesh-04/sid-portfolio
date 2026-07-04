@@ -17,14 +17,23 @@ const About = () => {
               <div className="w-20 h-1 bg-gradient-to-r from-neon-teal to-neon-purple rounded-full"></div>
             </div>
             
-            <div className="space-y-4 text-gray-300 text-base sm:text-lg leading-relaxed">
-              <p>
-  I am a final-year Robotics and Automation Engineering student with a strong interest in applying AI, and automation to real-world problems. My journey began with a Diploma in Computer Engineering, which gave me a solid technical foundation and sparked my curiosity for building intelligent systems.
-</p>
-<p>
-  Through academic work and personal projects, I have developed skills in Python, machine learning, and computer vision. As I start my professional journey, I am eager to apply this knowledge, take on real-world challenges, and continue growing through collaboration and learning.
+            <div className="space-y-4 text-gray-300 text-base sm:text-lg leading-relaxed" style={{ textAlign: "justify" }}>
+                
+             <p>
+    I am a Robotics and Automation Engineering graduate with a passion for
+    building intelligent systems and solving real-world problems through
+    technology. My journey began with a Diploma in Computer Engineering, which
+    laid a strong foundation and inspired my interest in innovation and
+    engineering.
+  </p>
 
-</p>
+  <p>
+    Through academic learning and personal projects, I have developed a
+    practical approach to problem-solving and enjoy exploring new ideas and
+    technologies. As I begin my professional career, I am eager to contribute
+    to meaningful projects, learn from experienced teams, and continue growing
+    as an engineer.
+  </p>
 
             </div>
 
