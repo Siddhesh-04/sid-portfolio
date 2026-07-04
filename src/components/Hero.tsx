@@ -63,10 +63,7 @@ const Hero = () => {
                 </span>
               </h1>
               <h2 className="text-2xl lg:text-3xl text-gray-300 mb-6 font-light">
-                Robotics Engineer
-                <span className="ml-2 text-sm align-top text-base italic font-mono text-neon-teal ">
-                  (B.E. Final Year)
-                </span>
+                Robotics & Automation Engineer
               </h2>
               <p className="text-lg text-gray-400 mb-8 max-w-md mx-auto lg:mx-0">
               Learning and building intelligent systems using AI, Automation, and Machine Vision.
