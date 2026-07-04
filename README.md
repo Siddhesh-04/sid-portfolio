@@ -1,44 +1,25 @@
-# AI-Enhanced Robotics Portfolio
+# Personal Portfolio
 
-A **responsive personal portfolio** to showcase my projects and skills as a robotics Engineering student.
+AI-Enhanced personal portfolio website showcasing my projects, skills, and experience in Robotics, AI, and Software Development.
 
-## Features
+🌐[**Live Website:**](https://siddheshsuthar.vercel.app/)
 
-- Responsive design for desktop and mobile
-- Project gallery with filters
-- Resume preview and download
-- Developed using Bolt.new AI and customized with React & Vite
+## Built With
 
-## Quick Start
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
 
-```sh
+## Run Locally
+
+```bash
 git clone https://github.com/Siddhesh-04/sid-portfolio.git
 cd sid-portfolio
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) to view locally.
+## License
 
-### Build & Preview
-
-```sh
-npm run build
-npm run preview
-```
-
-## Folder Structure
-
-- `src/components/` – React components
-- `public/assets/` – Images and static files
-- `index.html` – Main HTML entry
-- `tailwind.config.js` – Tailwind CSS config
-- `vite.config.ts` – Vite config
-
-## Deployment
-
-Easily deploy on Vercel or Netlify.
-
----
-
-Created by Siddhesh Suthar | [Portfolio](https://siddheshsuthar.vercel.app/)
+This project is for personal portfolio purposes.
